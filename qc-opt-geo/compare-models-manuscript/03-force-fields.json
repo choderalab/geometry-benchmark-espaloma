@@ -1,0 +1,13 @@
+{
+  "qm-structure": "../espaloma-0.3.0rc1-pavan/02-chunks/01-processed-qm",
+  "qm-label": "B3LYP-D3BJ/DZVP",
+  "qm-tag": "Energy QCArchive",
+  "mm-structures": {
+    "espaloma-0.3.0": "../espaloma-0.3.0rc6/02-outputs/espaloma-0.3.0rc6",
+    "espaloma-0.3.0-rc1": "../espaloma-0.3.0rc1-pavan/02-outputs/espaloma-0.3.0rc1",
+    "openff-2.1.0": "../openff-2.1.0/02-outputs/openff-2-1-0",
+    "openff-2.0.0": "../espaloma-0.3.0rc1-pavan/02-outputs/openff-2-0-0"
+  },
+  "mm-tag": "Energy FFXML",
+  "record-id-tag": "Record QCArchive"
+}
