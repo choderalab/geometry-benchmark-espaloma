@@ -1,5 +1,6 @@
 # Small molecule geometry benchmark
-This repository includes scripts to perform small molecule geometry benchmarks to validate espaloma `espaloma-0.3.0` forcefield.
+This repository includes scripts to perform small molecule geometry benchmarks to validate `espaloma-0.3.0` forcefield. 
+This repository is part of [espaloma-0.3.0-manuscript](https://github.com/choderalab/espaloma-0.3.0-manuscript).
 
 
 ## Description
