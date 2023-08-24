@@ -12,10 +12,17 @@ from collections import Counter
 seaborn.set_palette("colorblind")
 pyplot.rcParams['font.size'] = 18
 
+# define label name and color when plotting
+method_dict = {
+    "espaloma-0.3.0": ["espaloma-0.3", "red"], 
+    "espaloma-0.3.0-rc1": ["espaloma-0.3-rc1", "orange"], 
+    "openff-2.0.0": ["openff-2.0.0", "purple"], 
+    "openff-2.1.0": ["openff-2.1.0", "tab:blue"]
+    }
 
 def draw_step_plot(
     plot_data: List[numpy.ndarray],
-    method_labels: List[str],
+    method_dict: dict,
     metric: str,
     x_range: Tuple[float, float],
     output_path: str,
@@ -30,8 +37,8 @@ def draw_step_plot(
     plot_data
         A list of the arrays where ``plot_data[i]`` contains the particular metric of
         interest associated with ``method_labels[i]``.
-    method_labels
-        The label associated with each data series.
+    method_dict
+        The label name and color code associated with each data series.
     metric
         The metric contained in the ``plot_data``.
     x_range
@@ -46,9 +53,10 @@ def draw_step_plot(
         The percentile of the confidence interval to display.
     """
 
-    sample_count = min(map(len, plot_data))
-    #print(sample_count)
+    method_labels = [ value[0] for value in method_dict.values() ]
+    method_colors = [ value[1] for value in method_dict.values() ]
 
+    sample_count = min(map(len, plot_data))
     sample_densities = {
         method: numpy.zeros((bootstrap_iterations, n_bins)) for method in method_labels
     }
@@ -121,8 +129,8 @@ def draw_step_plot(
         height=3,
         lw=1.25,
         facet_kws={"legend_out": False},
+        palette=seaborn.color_palette(method_colors)
         )
-    #pyplot.setp(plot.ax.lines[4], linewidth=2.75)
 
     for i, method in enumerate(method_labels):
 
@@ -164,7 +172,7 @@ def draw_step_plot(
 
 def draw_ddE_histogram_in_ranges(
     plot_data: List[numpy.ndarray],
-    method_labels: List[str],
+    method_dict: dict,
     metric: str,
     output_path: str,
 ):
@@ -175,13 +183,16 @@ def draw_ddE_histogram_in_ranges(
     plot_data
         A list of the arrays where ``plot_data[i]`` contains the particular metric of
         interest associated with ``method_labels[i]``.
-    method_labels
-        The label associated with each data series.
+    method_dict
+        The label name and color code associated with each data series.
     metric
         The metric contained in the ``plot_data``.
     output_path
         The path to save the final plot to.
     """
+    method_labels = [ value[0] for value in method_dict.values() ]
+    method_colors = [ value[1] for value in method_dict.values() ]
+
     bins = numpy.array([-150, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 100])
     bin_inds = {}
     for i in range(len(method_labels)):
@@ -198,7 +209,7 @@ def draw_ddE_histogram_in_ranges(
         y[i] = [counts[i][mid], counts[i][mid-1]+counts[i][mid+1], counts[i][mid-2]+counts[i][mid+2], counts[i][mid-3]+counts[i][mid+3], counts[i][mid-4]+counts[i][mid+4]]
         y[i] = [t/(sum(counts[i].values()) - counts[i][len(bins)]) for t in y[i]]
         xw = [t+(i-1)*width for t in x]
-        pyplot.bar(xw, y[i], width=width, alpha=0.6, label=method_labels[i])
+        pyplot.bar(xw, y[i], width=width, alpha=0.6, label=method_labels[i], color=method_colors[i])
     pyplot.xlabel("ddE (kcal/mol) in ranges of [-1, 1], \n [-2, -1] & [1, 2], \n [-3, -2] & [2, 3], ...")
     pyplot.ylabel("Densities")
     pyplot.legend()
@@ -209,7 +220,7 @@ def draw_ddE_histogram_in_ranges(
 
 def draw_box_plot(
     plot_data: List[numpy.ndarray],
-    method_labels: List[str],
+    method_dict: dict,
     metric: str,
     y_range: Tuple[float, float],
     output_path: str,
@@ -221,13 +232,16 @@ def draw_box_plot(
     plot_data
         A list of the arrays where ``plot_data[i]`` contains the particular metric of
         interest associated with ``method_labels[i]``.
-    method_labels
-        The label associated with each data series.
+    method_dict
+        The label name and color code associated with each data series.
     metric
         The metric contained in the ``plot_data``.
     output_path
         The path to save the final plot to.
     """
+
+    method_labels = [ value[0] for value in method_dict.values() ]
+    method_colors = [ value[1] for value in method_dict.values() ]
 
     plot_frame = pandas.DataFrame(
         [
@@ -237,7 +251,8 @@ def draw_box_plot(
         ]
     )
 
-    seaborn.catplot(data=plot_frame, x="method", y=metric, kind="box", dodge=False)
+    #seaborn.catplot(data=plot_frame, x="method", y=metric, kind="box", dodge=False)
+    seaborn.catplot(data=plot_frame, x="method", y=metric, kind="box", dodge=False, palette=seaborn.color_palette(method_colors))
 
     pyplot.xticks(rotation=45, ha='right', rotation_mode='anchor')
 
@@ -254,28 +269,28 @@ def draw_box_plot(
     pyplot.close("all")
 
 
-def draw_plots(energies, rmsds, tfds, method_labels, output_directory):
+def draw_plots(energies, rmsds, tfds, method_dict, output_directory):
     """Draw step and violin plots of a set of ddE, RMSD, and TFD metrics."""
 
     os.makedirs(output_directory, exist_ok=True)
 
     draw_box_plot(
         energies,
-        method_labels,
+        method_dict,
         metric="ddE (kcal/mol)",
         y_range=(-15.0, 15.0),
         output_path=os.path.join(output_directory, "box-dde.svg"),
     )
     draw_step_plot(
         energies,
-        method_labels,
+        method_dict,
         metric="ddE (kcal/mol)",
         x_range=(-15.0, 15.0),
         output_path=os.path.join(output_directory, "step-dde.svg"),
     )
     draw_ddE_histogram_in_ranges(
         energies,
-        method_labels,
+        method_dict,
         metric="ddE (kcal/mol)",
         output_path=os.path.join(output_directory, "dde-in-ranges.svg"),
     )
@@ -287,7 +302,7 @@ def draw_plots(energies, rmsds, tfds, method_labels, output_directory):
 
         draw_box_plot(
             values,
-            method_labels,
+            method_dict,
             metric=metric,
             y_range=(0, 3) if key == "RMSD" else None,
             output_path=os.path.join(
@@ -296,7 +311,7 @@ def draw_plots(energies, rmsds, tfds, method_labels, output_directory):
         )
         draw_step_plot(
             values,
-            method_labels,
+            method_dict,
             metric=metric,
             x_range=(0, 3) if key == "RMSD" else None,
             output_path=os.path.join(
@@ -306,14 +321,14 @@ def draw_plots(energies, rmsds, tfds, method_labels, output_directory):
 
     draw_box_plot(
         tfds,
-        method_labels,
+        method_dict,
         metric="TFD",
         y_range=(0, 0.5),
         output_path=os.path.join(output_directory, "box-tfd.svg"),
     )
     draw_step_plot(
         tfds,
-        method_labels,
+        method_dict,
         metric="TFD",
         x_range=(0, 0.5),
         output_path=os.path.join(output_directory, "step-tfd.svg"),
@@ -326,11 +341,13 @@ def main(input_path):
     print("Plotting full metrics")
 
     metrics_frame = pandas.read_csv(input_path)
-    method_labels = sorted(metrics_frame["Force Field"].unique(), reverse=True)
+    #method_labels = sorted(metrics_frame["Force Field"].unique(), reverse=True)
+    method_keynames = list(method_dict.keys())
     metrics = []
 
-    for method_label in method_labels:
-        method_frame = metrics_frame[metrics_frame["Force Field"] == method_label]
+    #for method_label in method_labels:
+    for method_keyname in method_keynames:
+        method_frame = metrics_frame[metrics_frame["Force Field"] == method_keyname]
         metrics.append(
             (
                 method_frame["SMILES"].values,
@@ -369,8 +386,7 @@ def main(input_path):
             "FB OBJECTIVE" : fb_objectives, 
         },
         tfds,
-        method_labels,
-        #os.path.join("04-outputs", "full"),
+        method_dict,
         os.path.join("04-outputs"),
     )
 
