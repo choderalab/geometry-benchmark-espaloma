@@ -1,7 +1,3 @@
-## Description
-Following directories contains the scripts needed to compute the ddE, RMSD, and TDF metrics for a set of force fields against OpenFF Industry Benchmark Season 1 v1.1 dataset, QCArchive optimization data collection.
-
-
 ## Manifest
 - `espaloma-0.3.0rc1-pavan`: Minimize QM structures with `openff-2.0.0` and `espaloma-0.3.0-rc1` (former release candidate of espaloma-0.3)  
 - `espaloma-0.3.0rc6`: Minimize QM structures with `espaloma-0.3`  
