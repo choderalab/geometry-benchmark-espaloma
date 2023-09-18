@@ -10,11 +10,11 @@ This benchmark study heavily relies on the eariler works of the Open Force Field
 
 
 ## Manifest
-- `qc-opt-geo`   
-      - `espaloma-0.3.0rc1-pavan`: Minimize QM structures with `openff-2.0.0` and `espaloma-0.3-rc1`  
-      - `espaloma-0.3.0rc6`: Minimize QM structures with `espaloma-0.3`  
-      - `openff-2.1.0`: Minimize QM structures with `openff-2.1.0`  
-      - `compare-models-manuscript`: Stores scripts to compare and analyze QM and MM minimized structures
+- `qc-opt-geo/`: Stores scripts to minimize QM structures various MM force fields  
+      - `espaloma-0.3.0rc1-pavan/`  
+      - `espaloma-0.3.0rc6/`  
+      - `openff-2.1.0/`  
+      - `compare-models-manuscript/`  
 - `envs/`: Stores conda environment file  
       - `environment.yaml`
 
