@@ -1,12 +1,14 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8357494.svg)](https://doi.org/10.5281/zenodo.8357494)
+
 ## Manifest
-- `espaloma-0.3.0rc1-pavan`: Minimize QM structures with `openff-2.0.0` and `espaloma-0.3.0-rc1` (former release candidate of espaloma-0.3)  
+- `espaloma-0.3.0rc1-pavan`: Minimize QM structures with `openff-2.0.0` and `espaloma-0.3.0rc1` (former release candidate of espaloma-0.3)  
 - `espaloma-0.3.0rc6`: Minimize QM structures with `espaloma-0.3`  
 - `openff-2.1.0`: Minimize QM structures with `openff-2.1.0`  
 - `compare-models-manuscript`: Stores scripts to compare and analyze QM and MM minimized structures
 
 
 ## Basic Usage
-NOTE: QM DATASETS IN SDF FILE CAN BE DOWNLOADED FROM ZENODO. STEPS 1 & 2 COULD TAKE A WHILE TO PROCESS.
+***NOTE:  Steps 1 & 2 could take a while to process. Prefiltered QM datasets and MM optimized structures can be downloaded from [Zenodo(https://doi.org/10.5281/zenodo.8357494)].***
 
 1. (Optional) Download QM dataset from QCArchive
 
@@ -25,22 +27,22 @@ NOTE: QM DATASETS IN SDF FILE CAN BE DOWNLOADED FROM ZENODO. STEPS 1 & 2 COULD T
 
     > python 02-a-chunk-qm.py  
 
-    NOTE: `02-chunks/` CAN BE DOWNLOADED FROM ZENODO.
+    ***NOTE: `02-chunks/` can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494).***
 
 3. Minimize QM structure with each force field of interest
 
-    The minimized structures using `openff-2.0.0` and `espaloma-0.3.0-rc1` was kindly provided by Pavan Behara. The minimized structures are can be downloaded from Zenodo.
+    The minimized structures using `openff-2.0.0` and `espaloma-0.3.0rc1` was kindly provided by Pavan Behara. The minimized structures are can be downloaded from Zenodo.
 
     To run minimization with `openff-2.1.0`, move to a different directory and run the lsf job script. The minimized structures will be stored in a new `02-outputs/` directory. Similarly, to minimize with `espaloma-0.3`, move to `espaloma-0.3.0rc6/` directory and run the lsf job script.
 
     > cd openff-2.1.0  
     > bsub < lsf-submit-step02b.sh
 
-    NOTE: ALL MINIMIZED STRUCTURES EXPORTED CAN BE DOWNLOADED FROM ZENODO.
+    ***NOTE: All MM minimized structures (`02-outputs/`) can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494).***
 
 4. Compute metric
 
-    Run the `03-a-compute-metric.py` to compute the RMSD, TF, and ddE metrics for each MM force fields. Make sure the path to QM and MM optimized structures are defined correctly in `03-force-fields.json`. Multiple csv files will be exported in `03-outputs/`. 
+    Run the `03-a-compute-metric.py` to compute the RMSD, TF, and ddE metrics for each MM force fields. Make sure the path to QM and MM minimized structures are defined correctly in `03-force-fields.json`. Multiple csv files will be exported in `03-outputs/`. 
 
     > cd compare-models-manuscript  
     > bsub < lsf-submit-step03a.sh
