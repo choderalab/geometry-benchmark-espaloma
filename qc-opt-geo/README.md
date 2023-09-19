@@ -31,7 +31,7 @@
 
 3. Minimize QM structure with each force field of interest
 
-    The minimized structures using `openff-2.0.0` and `espaloma-0.3.0rc1` was kindly provided by Pavan Behara. The minimized structures are can be downloaded from Zenodo.
+    The minimized structures using `openff-2.0.0` and `espaloma-0.3.0rc1` was kindly provided by Pavan Behara, by running `02-b-minimize.py`. These minimized structures can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494) (02-outputs-openff-2.0.0-espaloma-0.3.0rc1.tar.gz).
 
     To run minimization with `openff-2.1.0`, move to a different directory and run the lsf job script. The minimized structures will be stored in a new `02-outputs/` directory. Similarly, to minimize with `espaloma-0.3`, move to `espaloma-0.3.0rc6/` directory and run the lsf job script.
 
