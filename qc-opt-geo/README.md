@@ -8,7 +8,7 @@
 
 
 ## Basic Usage
-***NOTE:  Steps 1 & 2 could take a while to process. Prefiltered QM datasets and MM optimized structures can be downloaded from [Zenodo(https://doi.org/10.5281/zenodo.8357494)].***
+***NOTE:  Steps 1 & 2 could take a while to process. Prefiltered QM datasets and MM optimized structures can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494).***
 
 1. (Optional) Download QM dataset from QCArchive
 
