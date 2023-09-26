@@ -1,9 +1,10 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8357494.svg)](https://doi.org/10.5281/zenodo.8357494)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8378216.svg)](https://doi.org/10.5281/zenodo.8378216)
 
 ## Manifest
 - `espaloma-0.3.0rc1-pavan`: Minimize QM structures with `openff-2.0.0` and `espaloma-0.3.0rc1` (former release candidate of espaloma-0.3)  
 - `espaloma-0.3.0rc6`: Minimize QM structures with `espaloma-0.3`  
 - `openff-2.1.0`: Minimize QM structures with `openff-2.1.0`  
+- `gaff-2.11`: Minimize QM structures with `gaff-2.11`  
 - `compare-models-manuscript`: Stores scripts to compare and analyze QM and MM minimized structures
 
 
@@ -27,18 +28,18 @@
 
     > python 02-a-chunk-qm.py  
 
-    ***NOTE: `02-chunks/` can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494).***
+    ***NOTE: `02-chunks/` can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8378216).***
 
 3. Minimize QM structure with each force field of interest
 
     The minimized structures using `openff-2.0.0` and `espaloma-0.3.0rc1` was kindly provided by Pavan Behara, by running `02-b-minimize.py`. These minimized structures can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494) (02-outputs-openff-2.0.0-espaloma-0.3.0rc1.tar.gz).
 
-    To run minimization with `openff-2.1.0`, move to a different directory and run the lsf job script. The minimized structures will be stored in a new `02-outputs/` directory. Similarly, to minimize with `espaloma-0.3`, move to `espaloma-0.3.0rc6/` directory and run the lsf job script.
+    To run minimization with `openff-2.1.0` or `gaff-2.11`, move to a different directory and run the lsf job script. The minimized structures will be stored in a new `02-outputs/` directory. Similarly, to minimize with `espaloma-0.3`, move to `espaloma-0.3.0rc6/` directory and run the lsf job script.
 
     > cd openff-2.1.0  
     > bsub < lsf-submit-step02b.sh
 
-    ***NOTE: All MM minimized structures (`02-outputs/`) can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8357494).***
+    ***NOTE: All MM minimized structures (`02-outputs/`) can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.8378216).***
 
 4. Compute metric
 

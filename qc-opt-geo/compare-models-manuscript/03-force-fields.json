@@ -3,8 +3,8 @@
   "qm-label": "B3LYP-D3BJ/DZVP",
   "qm-tag": "Energy QCArchive",
   "mm-structures": {
-    "espaloma-0.3.0": "../espaloma-0.3.0rc6/02-outputs/espaloma-0.3.0rc6",
-    "espaloma-0.3.0-rc1": "../espaloma-0.3.0rc1-pavan/02-outputs/espaloma-0.3.0rc1",
+    "espaloma-0.3": "../espaloma-0.3.0rc6/02-outputs/espaloma-0.3.0rc6",
+    "gaff-2.11": "../gaff-2.11/02-outputs/gaff-2",
     "openff-2.1.0": "../openff-2.1.0/02-outputs/openff-2-1-0",
     "openff-2.0.0": "../espaloma-0.3.0rc1-pavan/02-outputs/openff-2-0-0"
   },

@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8357494.svg)](https://doi.org/10.5281/zenodo.8357494)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8378216.svg)](https://doi.org/10.5281/zenodo.8378216)
 
 # Small molecule geometry benchmark
 This repository includes scripts to perform small molecule geometry benchmarks to validate `espaloma-0.3`. 
@@ -8,7 +8,7 @@ This repository includes scripts to perform small molecule geometry benchmarks t
 Following directories contains the scripts needed to compute the  for a set of force fields against OpenFF Industry Benchmark Season 1 v1.1 dataset, QCArchive optimization data collection.
 
 `espaloma-0.3` (`espaloma-0.3.0rc6`) is quantatively assessed by the measuring the root mean squared deviation (RMSD) in geometries between MM optimized and QM optimized conformers, torsion fingerprint deviation (TFD), and error in relative conformer energies (ddE) against the [OpenFF Industry Benchmark Season 1 v1.1](https://github.com/openforcefield/qca-dataset-submission/tree/master/submissions/2021-06-04-OpenFF-Industry-Benchmark-Season-1-v1.1) deposited in [QCArchive](https://qcarchive.molssi.org/), following the eariler works of the Open Force Field Initiative[1,2].
-This dataset is a QM optimization dataset generated at the B3LYP-D3BJ/DZVP level of theory, containing nearly 9847 unique molecules and 76713 conformers of drug-like molecules. RMSD, TFD, ddE metrics are computed for `openff-2.0.0`, `openff-2.1.0` and `espaloma-0.3.0rc1`, a release candidate of `espaloma-0.3`, as well for comparison.
+This dataset is a QM optimization dataset generated at the B3LYP-D3BJ/DZVP level of theory, containing nearly 9847 unique molecules and 76713 conformers of drug-like molecules. RMSD, TFD, ddE metrics are computed for `openff-2.0.0`, `openff-2.1.0`, `gaff-2.11`, and `espaloma-0.3.0rc1`, a release candidate of `espaloma-0.3`, as well for comparison.
 
 This analysis is based on the [infrastructure](https://github.com/openforcefield/openff-sage/tree/main/inputs-and-results/benchmarks/qc-opt-geo) developed by the Open Force Field Initiative.
 
@@ -17,7 +17,8 @@ This analysis is based on the [infrastructure](https://github.com/openforcefield
 - `qc-opt-geo/`: Stores scripts to minimize QM structures various MM force fields  
       - `espaloma-0.3.0rc1-pavan/`  
       - `espaloma-0.3.0rc6/`  
-      - `openff-2.1.0/`  
+      - `openff-2.1.0/` 
+      - `gaff-2.11/` 
       - `compare-models-manuscript/`  
 - `envs/`: Stores conda environment file  
       - `environment.yaml`

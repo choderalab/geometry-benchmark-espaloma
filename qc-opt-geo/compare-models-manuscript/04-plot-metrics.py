@@ -14,10 +14,11 @@ pyplot.rcParams['font.size'] = 18
 
 # define label name and color when plotting
 method_dict = {
-    "espaloma-0.3.0": ["espaloma-0.3", "red"], 
-    "espaloma-0.3.0-rc1": ["espaloma-0.3-rc1", "orange"], 
+    "espaloma-0.3": ["espaloma-0.3", "red"], 
+    #"espaloma-0.3.0-rc1": ["espaloma-0.3-rc1", "orange"], 
     "openff-2.0.0": ["openff-2.0.0", "purple"], 
-    "openff-2.1.0": ["openff-2.1.0", "tab:blue"]
+    "openff-2.1.0": ["openff-2.1.0", "tab:blue"],
+    "gaff-2.11": ["gaff-2.11", "tab:green"], 
     }
 
 def draw_step_plot(
