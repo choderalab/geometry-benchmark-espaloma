@@ -2,7 +2,7 @@
 
 # Small molecule geometry benchmark
 This repository includes scripts to perform small molecule geometry benchmarks to validate `espaloma-0.3`. 
-
+This repository is part of [espaloma-0.3.0-manuscript](https://github.com/choderalab/espaloma-0.3.0-manuscript).
 
 ## Description
 Following directories contains the scripts needed to compute the  for a set of force fields against OpenFF Industry Benchmark Season 1 v1.1 dataset, QCArchive optimization data collection.
@@ -32,9 +32,9 @@ Note that [espaloma](https://github.com/choderalab/espaloma) version >=0.3.0 and
 If you find this helpful please cite the following:
 
 ```
-@misc{takaba2023espaloma030,
-      title={Espaloma-0.3.0: Machine-learned molecular mechanics force field for the simulation of protein-ligand systems and beyond}, 
-      author={Kenichiro Takaba and Iván Pulido and Mike Henry and Hugo MacDermott-Opeskin and John D. Chodera and Yuanqing Wang},
+@misc{takaba2023machinelearned,
+      title={Machine-learned molecular mechanics force field for the simulation of protein-ligand systems and beyond}, 
+      author={Kenichiro Takaba and Iván Pulido and Pavan Kumar Behara and Mike Henry and Hugo MacDermott-Opeskin and John D. Chodera and Yuanqing Wang},
       year={2023},
       eprint={2307.07085},
       archivePrefix={arXiv},
@@ -43,5 +43,5 @@ If you find this helpful please cite the following:
 ```
 
 ## Reference
-[1] [Simon Boothroyd et al. (2023). Development and Benchmarking of Open Force Field 2.0.0: The Sage Small Molecule Force Field. JCTC,19(11):3251-3275 ](https://pubs.acs.org/doi/10.1021/acs.jctc.3c00039)  
-[2] [Victoria T. Lim et al. (2020). Benchmark assessment of molecular geometries and energies from small molecule force fields. F1000Research,9:1390](https://f1000research.com/articles/9-1390/v1)
+[1] [Victoria T. Lim et al. (2020). Benchmark assessment of molecular geometries and energies from small molecule force fields. F1000Research,9:1390](https://f1000research.com/articles/9-1390/v1)
+[2] [Simon Boothroyd et al. (2023). Development and Benchmarking of Open Force Field 2.0.0: The Sage Small Molecule Force Field. JCTC,19(11):3251-3275 ](https://pubs.acs.org/doi/10.1021/acs.jctc.3c00039)  
